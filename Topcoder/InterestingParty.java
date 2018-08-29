@@ -1,7 +1,3 @@
-package com.company;
-
-import java.util.stream.Stream;
-
 public class InterestingParty {
     public int bestInvitation(String[] first, String[] second){
         int max = 0;

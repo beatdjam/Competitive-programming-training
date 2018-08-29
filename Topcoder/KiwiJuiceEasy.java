@@ -1,5 +1,3 @@
-package com.company;
-
 public class KiwiJuiceEasy {
     public int[] thePouring(int[] capacities, int[] bottles, int[] fromId, int[] toId){
         int count = fromId.length;
