@@ -25,3 +25,22 @@ for(String key : dic.keyset()){
 }
 return ans;
 ```
+## Cryptography
+### AC時の解答
+入力に対して、全ての数字をそれぞれ+1したパターンの結果を計算し、  
+最も大きい値を返却。  
+### より良い解法
+この問題の場合は、最小の値を+1すると答えになる。  
+* ソートして最小値を取得
+* 最小値を+1
+* 計算結果を返却  
+で答えを求められる。
+```java
+Array.sort(numbers);
+numbers[0]++;
+long prod = 1;
+for(int i = 0;i < numbers.length;i++){
+  prod *= numbers[i];
+}
+return prod;
+```
