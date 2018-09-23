@@ -4,6 +4,7 @@ public class InterestingParty {
         for(int i = 0;i < first.length; i++){
             int f = 0;
             int s = 0;
+            // 1番目の話題と2番目の話題を全パターンループ
             for (int j = 0;j < first.length;j++){
                 if(first[i].equals(first[j])) f++;
                 if(first[i].equals(second[j])) f++;
