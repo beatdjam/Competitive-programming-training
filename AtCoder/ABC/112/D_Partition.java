@@ -27,15 +27,27 @@ public class Main {
         //      　最低値の7×3でも21となり成立しない。
         //      ・最大公約数が2のとき、数列は全て2以上となるため、
         //      　最低値の2×3は6となり、取りうる最大公約数となる。
-        int MAX = (int)Math.floor(m/n);
 
-        // 最大値を求める問題なので、取りうる最大値からマイナスして成立するものを探すほうが早い
+//        // (一回目のAC解 テストケースによっては10^9ループ回ってTLEになるので想定解ではなさそう)
+//        // 最大値を求める問題なので、取りうる最大値からマイナスして成立するものを探すほうが早い
+//        int MAX = Math.floorDiv(m, n);
+//        long ans = 1;
+//        for(int i = MAX;1 < i;i--){
+//            if (m%i == 0){
+//                ans = i;
+//                break;
+//            }
+//        }
+
+        // 想定解っぽいやつ
+        // Mの平方根までの約数と、その約数で割った値で全ての約数が求められるため
+        // それらの値が条件に一致するかどうかをチェックして最大値を入れる
+        int MAX = Math.floorDiv(m, n);
         long ans = 1;
-        for(int i = MAX;1 < i;i--){
-            if (m%i == 0){
-                ans = i;
-                break;
-            }
+        for (int i = 1; i*i <= m; i++) {
+            if (m % i != 0) continue;
+            if(i <= MAX) ans = Math.max(ans,i);
+            if (m / i <= MAX) ans = Math.max(ans,m/i);
         }
         println(ans);
     }
