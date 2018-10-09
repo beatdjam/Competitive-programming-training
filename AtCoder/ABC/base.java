@@ -46,7 +46,7 @@ public class Main {
     }
 
     // 計算系
-    static int[] getDivisor(int val){
+    static int[] divisor(int val){
         List<Integer> divisor = new ArrayList<>();
         for (int i = 1; i*i <= val; i++) {
             if (val % i != 0) continue;
@@ -57,10 +57,42 @@ public class Main {
         Arrays.sort(result);
         return result;
     }
-    static int[] getPrime(int from, int to){
+    static int[] prime(int from, int to){
         return IntStream.rangeClosed(from, to)
                 .filter(i -> IntStream.rangeClosed(2, (int)Math.sqrt(i)).allMatch(j -> i%j !=0))
                 .toArray();
+    }
+    static int[] decom(int n){
+        if(n == 1) {
+            int[] ret = new int[1];
+            ret[0] = 1;
+            return ret;
+        }
+        List<Integer> ret = new ArrayList<>();
+        for(int i = 2;i * i <= n;i++){
+             if(n % i == 0){
+                 n /= i;
+                 ret.add(i);
+             }
+        }
+        return listToIntArray(ret);
+    }
+
+    // 文字列編集
+    static String swap(String s,String a, String b){
+        char A = a.charAt(0);
+        char B = b.charAt(0);
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0;j < s.length();j++){
+            if(s.charAt(j) == A) {
+                sb.append(b);
+            } else if(s.charAt(j) == B) {
+                sb.append(a);
+            } else{
+                sb.append(s.charAt(j));
+            }
+        }
+        return sb.toString();
     }
 
 
