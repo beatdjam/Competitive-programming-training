@@ -77,6 +77,9 @@ public class Main {
         }
         return listToIntArray(ret);
     }
+    static int gcd(int a,int b){
+        return  a%b == 0 ? b : gcd(b, a%b);
+    }
 
     // 文字列編集
     static String swap(String s,String a, String b){
