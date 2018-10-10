@@ -18,6 +18,26 @@ public class Main {
     }
 
     static void func() throws IOException {
+        int[] in = arrayOfInt();
+        int n = in[0];
+        int k = in[1];
+        int[] d = arrayOfInt();
+        for(int i = n;;i++){
+            String s = getString(i);
+            boolean flag = true;
+            for(int j = 0;j < s.length();j++){
+                for(int kk = 0;kk < k;kk++){
+                    if(s.charAt(j) == getString(d[kk]).charAt(0)){
+                        flag = false;
+                        break;
+                    }
+                }
+            }
+            if(flag) {
+                println(i);
+                return;
+            }
+        }
         // 解答
     }
     // 入力受け取り
@@ -27,8 +47,8 @@ public class Main {
     static String[] arrayOfString() throws IOException{return br.readLine().split(" ");}
     static int[] arrayOfInt() throws IOException{return toIntArray(arrayOfString());}
     // 変換
-    static String getString(int val) {return Integer.toString(val);}
     static long getLong(String val) {return Long.parseLong(val);}
+    static String getString(int val) {return Integer.toString(val);}
     static int getInt(String val) {return Integer.parseInt(val);}
     static int[] toIntArray(String[] array) {
         return Stream.of(array.clone()).mapToInt(Integer::parseInt).toArray();
@@ -71,34 +91,16 @@ public class Main {
         }
         List<Integer> ret = new ArrayList<>();
         for(int i = 2;i * i <= n;i++){
-             if(n % i == 0){
-                 n /= i;
-                 ret.add(i);
-             }
+            if(n % i == 0){
+                n /= i;
+                ret.add(i);
+            }
         }
         return listToIntArray(ret);
     }
     static int gcd(int a,int b){
         return  a%b == 0 ? b : gcd(b, a%b);
     }
-
-    // 文字列編集
-    static String swap(String s,String a, String b){
-        char A = a.charAt(0);
-        char B = b.charAt(0);
-        StringBuilder sb = new StringBuilder();
-        for (int j = 0;j < s.length();j++){
-            if(s.charAt(j) == A) {
-                sb.append(b);
-            } else if(s.charAt(j) == B) {
-                sb.append(a);
-            } else{
-                sb.append(s.charAt(j));
-            }
-        }
-        return sb.toString();
-    }
-
 
     // 出力
     static void println(Object val){pw.println(val);}
