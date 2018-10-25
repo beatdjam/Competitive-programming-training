@@ -28,8 +28,10 @@ public class Main {
     static int[] arrayOfInt() throws IOException{return toIntArray(arrayOfString());}
     // 変換
     static String getString(int val) {return Integer.toString(val);}
+    static String getString(char val) {return Character.toString(val);}
     static long getLong(String val) {return Long.parseLong(val);}
     static int getInt(String val) {return Integer.parseInt(val);}
+    static int getInt(char val) {return Integer.parseInt(getString(val));}
     static int[] toIntArray(String[] array) {
         return Stream.of(array.clone()).mapToInt(Integer::parseInt).toArray();
     }
@@ -44,6 +46,18 @@ public class Main {
             ret[i] = list.get(i);
         }
         return ret;
+    }
+    
+    // ソート
+    static int[] sortn(int[] ary) {
+        Arrays.sort(ary);
+        return ary;
+    }
+    static int[] sortr(int[] ary) {
+        return Arrays.stream(ary).boxed()
+                .sorted(Comparator.reverseOrder())
+                .mapToInt(Integer::intValue)
+                .toArray();
     }
 
     // 計算系
