@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -47,7 +48,7 @@ public class Main {
         }
         return ret;
     }
-    
+
     // ソート
     static int[] sortn(int[] ary) {
         Arrays.sort(ary);
@@ -85,10 +86,10 @@ public class Main {
         }
         List<Integer> ret = new ArrayList<>();
         for(int i = 2;i * i <= n;i++){
-             if(n % i == 0){
-                 n /= i;
-                 ret.add(i);
-             }
+            if(n % i == 0){
+                n /= i;
+                ret.add(i);
+            }
         }
         return listToIntArray(ret);
     }
