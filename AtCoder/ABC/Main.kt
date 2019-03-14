@@ -19,12 +19,13 @@ fun nextInt() = next().toInt()
 fun nextLong() = next().toLong()
 fun listOfString() = next().split(" ")
 fun listOfInt() =listOfString().map { it.toInt() }
+fun listOfLong() =listOfString().map { it.toLong() }
 
 // 約数のList
-fun divisor(value : Int) : List<Int> {
-    val max = Math.sqrt(value.toDouble()).toInt()
+fun divisor(value : Long) : List<Long> {
+    val max = Math.sqrt(value.toDouble()).toLong()
     return (1..max)
-        .filter { value % it == 0 }
+        .filter { value % it == 0L }
         .map { listOf(it, value / it) }
         .flatten()
         .sorted()
@@ -32,23 +33,23 @@ fun divisor(value : Int) : List<Int> {
 
 // 範囲内の素数を取得
 // fromだけ指定すると戻り値の個数で素数判定ができる
-fun prime(from : Int, to : Int = from) : List<Int> {
+fun prime(from : Long, to : Long = from) : List<Long> {
     return (from..to).filter { i ->
-        val max = Math.sqrt(i.toDouble()).toInt()
-        (2..max).all { j ->  i % j != 0 }
+        val max = Math.sqrt(i.toDouble()).toLong()
+        (2..max).all { j ->  i % j != 0L }
     }
 }
 
 // 素因数分解
-fun decom(value : Int) : List<Int>{
-    if (value == 1) return listOf(1)
-    val max = Math.sqrt(value.toDouble()).toInt()
-    return prime(2, max).filter { value % it == 0 }
+fun decom(value : Long) : List<Long>{
+    if (value == 1L) return listOf(1)
+    val max = Math.sqrt(value.toDouble()).toLong()
+    return prime(2, max).filter { value % it == 0L }
 }
 
 // 最大公約数
-fun gcd(a : Int, b : Int) : Int {
-    return if (a % b == 0) b else gcd(b, a % b)
+fun gcd(a : Long, b : Long) : Long {
+    return if (a % b == 0L) b else gcd(b, a % b)
 }
 
 // 文字列を入れ替え
