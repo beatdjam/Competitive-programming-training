@@ -17,9 +17,11 @@ fun func() {
 fun next() = br.readLine()!!
 fun nextInt() = next().toInt()
 fun nextLong() = next().toLong()
+fun nextDouble() = next().toDouble()
 fun listOfString() = next().split(" ")
 fun listOfInt() =listOfString().map { it.toInt() }
 fun listOfLong() =listOfString().map { it.toLong() }
+fun listOfDouble() =listOfString().map { it.toDouble() }
 
 // 約数のList
 fun divisor(value : Long) : List<Long> {
