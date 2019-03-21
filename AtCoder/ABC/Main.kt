@@ -1,8 +1,4 @@
-import java.io.BufferedReader
-import java.io.InputStreamReader
 import java.io.PrintWriter
-
-val br = BufferedReader(InputStreamReader(System.`in`))
 val pw = PrintWriter(System.out)
 fun main(args : Array<String>) {
     func()
@@ -14,7 +10,7 @@ fun func() {
 }
 
 // 入力取得
-fun next() = br.readLine()!!
+fun next() = readLine()!!
 fun nextInt() = next().toInt()
 fun nextLong() = next().toLong()
 fun nextDouble() = next().toDouble()
